@@ -1,18 +1,14 @@
-package noushin.page;
+package noushin.core.pages;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import noushin.utils.AndroidActions;
+import noushin.core.pages.common.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends AndroidActions {
-    AndroidDriver driver;
+public class LoginPage extends BasePage {
 
-    public LoginPage(AndroidDriver driver) {
-        super(driver);
-        this.driver = driver;
+    public LoginPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -25,12 +21,12 @@ public class LoginPage extends AndroidActions {
 
     public void setUsernameField(String userName) {
         txtUsername.sendKeys(userName);
-        driver.hideKeyboard();
+        hideKeyboard();
     }
 
     public void setPasswordField(String password) {
         txtPassword.sendKeys(password);
-        driver.hideKeyboard();
+        hideKeyboard();
     }
 
     public void login() {

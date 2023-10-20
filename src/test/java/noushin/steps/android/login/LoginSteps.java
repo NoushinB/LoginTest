@@ -1,23 +1,23 @@
-package noushin.steps;
+package noushin.steps.android.login;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import noushin.support.BaseTest;
-import noushin.support.LoginPageTest;
+import noushin.core.pages.LoginPage;
+import noushin.steps.common.BaseSteps;
 
 
-public class LoginSteps {
+public class LoginSteps extends BaseSteps {
 
-    private LoginPageTest loginPage;
+    private final LoginPage loginPage;
 
     public LoginSteps() {
-        loginPage = new LoginPageTest();
+        loginPage = new LoginPage();
     }
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
-        // loginPage.open();
+        loginPage.hideKeyboard();
     }
 
     @When("they enter a valid username and password")

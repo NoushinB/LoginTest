@@ -4,9 +4,17 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
+import noushin.core.drivers.DriverManager;
+import noushin.core.drivers.DriverProvider;
+import noushin.core.library.Constants;
+import noushin.core.library.PropertyLoader;
 
 public class Hooks {
 
+    /**
+     * BeforeAll hooks run before all and one time.
+     * For example if we want to download the app from server we can use this.
+     */
     @BeforeAll
     public static void setup() {
 
@@ -17,7 +25,10 @@ public class Hooks {
      */
     @Before
     public static void beforeTest() {
-
+        PropertyLoader.getInstance().setPlatform(Constants.Platforms.ANDROID);
+        PropertyLoader.getInstance().setAppPath(Constants.Apps.ANDROID);
+        DriverProvider driverProvider = new DriverProvider();
+        DriverManager.setDriver(driverProvider.getDriver());
     }
 
     /**
@@ -26,7 +37,7 @@ public class Hooks {
      */
     @After
     public static void afterTest() {
-
+        DriverManager.removeDriver();
     }
 
     @AfterAll
