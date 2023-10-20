@@ -5,7 +5,12 @@ import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty"}, tags = "not @todo")
+@CucumberOptions(
+        features = "src/test/resources/features",
+        plugin = {"pretty"},
+        publish = true,
+        tags = "not @todo"
+)
 public class RunCucumberTest {
 
 }
