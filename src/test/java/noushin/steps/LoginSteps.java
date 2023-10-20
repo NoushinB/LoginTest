@@ -3,14 +3,16 @@ package noushin.steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import noushin.support.LoginPage;
+import noushin.support.BaseTest;
+import noushin.support.LoginPageTest;
+
 
 public class LoginSteps {
 
-    private LoginPage loginPage;
+    private LoginPageTest loginPage;
 
     public LoginSteps() {
-        loginPage = new LoginPage();
+        loginPage = new LoginPageTest();
     }
 
     @Given("the user is on the login page")

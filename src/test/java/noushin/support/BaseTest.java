@@ -4,6 +4,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import noushin.page.LoginPage;
+import noushin.utils.AppiumUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -12,8 +14,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseTest extends AppiumUtils {
     public AndroidDriver driver;
+    public LoginPage loginPage;
 
     @BeforeClass
     public void configureAppium() throws IOException {
@@ -30,6 +33,7 @@ public class BaseTest {
         URL url = new URL("http://127.0.0.1:4723");
         driver = new AndroidDriver(url, options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        loginPage=new LoginPage(driver);
     }
 
     @AfterClass
