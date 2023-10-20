@@ -4,10 +4,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import noushin.core.pages.LoginPage;
-import noushin.steps.common.BaseSteps;
 
-
-public class LoginSteps extends BaseSteps {
+public class LoginSteps {
 
     private final LoginPage loginPage;
 
@@ -17,7 +15,7 @@ public class LoginSteps extends BaseSteps {
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
-        loginPage.hideKeyboard();
+
     }
 
     @When("they enter a valid username and password")

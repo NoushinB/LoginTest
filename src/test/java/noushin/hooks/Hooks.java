@@ -17,7 +17,8 @@ public class Hooks {
      */
     @BeforeAll
     public static void setup() {
-
+        PropertyLoader.getInstance().setPlatform(Constants.Platforms.ANDROID);
+        PropertyLoader.getInstance().setAppPath(Constants.Apps.ANDROID);
     }
 
     /**
@@ -25,8 +26,6 @@ public class Hooks {
      */
     @Before
     public static void beforeTest() {
-        PropertyLoader.getInstance().setPlatform(Constants.Platforms.ANDROID);
-        PropertyLoader.getInstance().setAppPath(Constants.Apps.ANDROID);
         DriverProvider driverProvider = new DriverProvider();
         DriverManager.setDriver(driverProvider.getDriver());
     }
