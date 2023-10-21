@@ -12,14 +12,14 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(id = "toolbar_title")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_toolbar_title\")")
     private WebElement loginToolbarTitle;
 
-    @AndroidFindBy(id = "login_username")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_username\")")
     private WebElement txtUsername;
-    @AndroidFindBy(id = "login_password")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_password\")")
     private WebElement txtPassword;
-    @AndroidFindBy(id = "login_button")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_button\")")
     private WebElement btnLogin;
 
     public boolean isLoginPageDisplayed() {
