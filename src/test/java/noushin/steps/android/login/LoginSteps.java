@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import noushin.core.pages.LoginPage;
 
+import static org.junit.Assert.assertTrue;
+
 public class LoginSteps {
 
     private final LoginPage loginPage;
@@ -15,7 +17,7 @@ public class LoginSteps {
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
-
+        assertTrue(loginPage.isLoginPageDisplayed());
     }
 
     @When("they enter a valid username and password")
