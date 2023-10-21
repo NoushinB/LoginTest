@@ -11,6 +11,6 @@ public class Constants {
     }
 
     public static final class Apps {
-        public static final String ANDROID = "D:\\maven\\loginTest\\src\\test\\resources\\noushin_login_test.apk";
+        public static final String ANDROID = "D:\\maven\\loginTest\\src\\test\\resources\\apps\\noushin_login_test.apk";
     }
 }

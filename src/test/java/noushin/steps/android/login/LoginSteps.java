@@ -20,12 +20,13 @@ public class LoginSteps {
 
     @When("they enter a valid username and password")
     public void they_enter_a_valid_username_and_password() {
-
+        loginPage.setUsernameField("noushin");
+        loginPage.setPasswordField("1234");
     }
 
     @When("they click the login button")
     public void they_click_the_login_button() {
-
+        loginPage.login();
     }
 
     @Then("they should be logged in")
