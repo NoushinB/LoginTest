@@ -43,6 +43,16 @@ public class ReusableUIMethods {
                 ((RemoteWebElement) ele).getId(), "direction", direction, "percent", 0.75));
     }
 
+    public boolean isElementDisplayed(WebElement Element) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_TIMEOUT);
+            wait.until(ExpectedConditions.visibilityOf(Element));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
     public boolean waitForTextToBeAvailable(By selector, int seconds) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
