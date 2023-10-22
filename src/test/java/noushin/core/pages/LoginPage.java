@@ -1,26 +1,23 @@
 package noushin.core.pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import noushin.core.pages.common.BasePage;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_toolbar_title\")")
     private WebElement loginToolbarTitle;
-
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_username\")")
     private WebElement txtUsername;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_password\")")
     private WebElement txtPassword;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_button\")")
     private WebElement btnLogin;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"login_error\")")
+    private WebElement errorMessage;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"forgot_pass_button\")")
+    private WebElement forgotPasswordButton;
 
     public boolean isLoginPageDisplayed() {
         return reusableUIMethods.isElementDisplayed(loginToolbarTitle);
@@ -38,5 +35,17 @@ public class LoginPage extends BasePage {
 
     public void login() {
         btnLogin.click();
+    }
+
+    public String getErrorText() {
+        boolean isAvailable = reusableUIMethods.waitForWebElementToBeAvailable(errorMessage, 5);
+        if (isAvailable) {
+            return errorMessage.getText();
+        }
+        return "";
+    }
+
+    public void forgotPasswordButtonClick() {
+        forgotPasswordButton.click();
     }
 }
